@@ -9,22 +9,12 @@ const jotformController = {
 
         try {
          
-            let data = await jotform.getUser();
-
-            // console.log('first' , data)
-                // .then(function (r) {
-                //     /* successful response after request */
-                //     console.log('result', r)
-                // })
-                // .fail(function (e) {
-                //     /* handle error */
-                //     console.log('error' , e)
-                // });
+            let data = await jotform.getSettings();
 
             return res.status(200).json(
                     {
                         success: true,
-                        // data: slots
+                        data: data
                     }
                 );
 
