@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const url = 'mongodb://127.0.0.1:27017/vaccine_slot_booking'
+const url = 'mongodb://127.0.0.1:27017/node_js_test_db'
 mongoose.connect(url, { useNewUrlParser: true })
 
 const db = mongoose.connection
