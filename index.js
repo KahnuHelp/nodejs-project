@@ -13,13 +13,19 @@ app.use(cors({
 }));
 
 
-// const router = require('./src/routes/routes'); 
+app.get('/', function(request, response) {
+    response.send("hello from backend");
+});
 
+const router = require('./api/config/routes'); 
 app.use(express.json());
 
-// app.use('/api',router);
+app.use('/api',router);
 
 
 app.listen(port , ()=>{
     console.log(`Our node js server started at ${port}`);
+    console.log('---------------------------------------------------');
+    console.log('---------------------------------------------------');
+
 });

@@ -4,7 +4,7 @@ mongoose.connect(url, { useNewUrlParser: true })
 
 const db = mongoose.connection
 db.once('open', _ => {
-  console.log('Database connected:', url)
+  // console.log('Database connected:', url)
 })
 
 db.on('error', err => {
