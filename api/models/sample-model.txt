@@ -1,0 +1,28 @@
+const mongoose = require('mongoose');
+
+const slotsSchema = new mongoose.Schema({
+
+    slotNo: {
+        type: Number,
+        required: true,
+        unique: true,
+    },
+    slotTime: {
+        type: String,
+    },
+    isActive: {
+        type: Boolean,
+        default : true
+    },
+    status: {
+        type: String,
+        default : 'booked',
+        enum: ['booked', 'cancelled' , 'completed']
+    },
+
+}, {
+    versionKey: false //here
+});
+
+const slotsSchemas = mongoose.model('slots', slotsSchema);
+module.exports = slotsSchemas;

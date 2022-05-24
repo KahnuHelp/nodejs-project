@@ -1,0 +1,41 @@
+const express = require('express');
+const router = express.Router();
+const userController= require('../controller/userController');
+const slotController = require('../controller/slotController');
+const bookedSlotsController = require('../controller/bookedSlotsController');
+
+
+router.post("/register", userController.register);
+router.post("/login", userController.login);
+
+//user routes
+router.get("/users", userController.findAllUsers);   
+router.get("/users/:id", userController.findSingleUser);
+router.put("/users/:id", userController.updateUser);
+router.delete("/users/:id", userController.deleteUser);
+
+//slots 
+router.post("/slots", slotController.createSlots);
+router.get("/slots", slotController.findAllSlots);
+router.get("/slots/:id", slotController.findSingleSlot);
+router.put("/slots/:id", slotController.updateSlot);
+router.delete("/slots/:id", slotController.deleteSlot);
+
+//booking 
+router.post("/bookings", bookedSlotsController.createBooking);
+router.get("/bookings", bookedSlotsController.findAllBookings);
+router.get("/bookings/:id", bookedSlotsController.findSingleBooking);
+router.get("/get-bookings/", bookedSlotsController.findAllBookingsByDate);
+
+router.put("/bookings/:id", bookedSlotsController.updateBooking);
+
+router.get("/csv/import", userController.csvImport);
+
+
+
+
+router.get('/', function(request, response) {
+    response.send("hello from backend");
+});
+
+module.exports = router;
