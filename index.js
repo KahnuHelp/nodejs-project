@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 
 
-require('./src/config/database')
+require('./api/config/database')
 const app = express();
 const port =  3005;
 
