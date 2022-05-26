@@ -1,7 +1,7 @@
 
 
 var nodemailer = require('nodemailer');
-
+const mailSender = require('../utils/emailUtils')
 
 const sendemailController = {
 
@@ -10,30 +10,30 @@ const sendemailController = {
 
         try {
 
+            mailSender.sendEmail();
+            // var transporter = nodemailer.createTransport({
+            //     host: 'smtp.gmail.com',
+            //     service: 'gmail',
+            //     auth: {
+            //         user: 'kahnuc.swain@nettantra.net',
+            //         pass: 'xnktthmmjahwfdcj'
+            //     }
+            // });
 
-            var transporter = nodemailer.createTransport({
-                host: 'smtp.gmail.com',
-                service: 'gmail',
-                auth: {
-                    user: 'kahnuc.swain@nettantra.net',
-                    pass: 'xnktthmmjahwfdcj'
-                }
-            });
+            // var mailOptions = {
+            //     from: '"yyy" <yyy@gmail.com>',
+            //     to: 'kahnuc.swain@nettantra.net',
+            //     subject: 'Sending Email testing',
+            //     text: 'That was easy!'
+            // };
 
-            var mailOptions = {
-                from: '"yyy" <yyy@gmail.com>',
-                to: 'kahnuc.swain@nettantra.net',
-                subject: 'Sending Email testing',
-                text: 'That was easy!'
-            };
-
-            transporter.sendMail(mailOptions, function (error, info) {
-                if (error) {
-                    console.log(error);
-                } else {
-                    console.log('Email sent: ' + info.response);
-                }
-            });
+            // transporter.sendMail(mailOptions, function (error, info) {
+            //     if (error) {
+            //         console.log(error);
+            //     } else {
+            //         console.log('Email sent: ' + info.response);
+            //     }
+            // });
 
             // let data = await jotform.getSettings();
 
