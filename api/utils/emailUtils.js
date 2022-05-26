@@ -17,29 +17,17 @@ var mailSender = nodemailer.createTransport({
 });
 
 module.exports = {
-    sendEmail: async function (templateName, data, callback) {
-        var mailOptions = {
-            from: '"yyy" <yyy@gmail.com>',
-            to: 'kahnuc.swain@nettantra.net',
-            subject: 'Sending Email testing',
-            text: 'That was easy!'
-        };
+    sendEmail: async function (mailOptions) {
 
-        mailSender.sendMail(mailOptions, function (error, info) {
+        await mailSender.sendMail(mailOptions, function (error, info) {
             if (error) {
                 console.log(error);
+                return error;
             } else {
                 console.log('Email sent: ' + info.response);
+                return info;
             }
         });
-
-
-        // console.log('emailOptions', emailOptions);
-        // sgMail.setApiKey(process.env.EMAIL_API_KEY);
-        // sgMail
-        //     .send(emailOptions)
-        //     .then(() => callback())
-        //     .catch(error => callback(error));
     },
 
     sendDynamicEmail: async function (dynamicTemplateId, data, callback) {
