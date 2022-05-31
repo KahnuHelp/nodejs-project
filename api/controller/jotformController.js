@@ -8,15 +8,15 @@ const jotformController = {
     test: async (req, res) => {
 
         try {
-         
+
             let data = await jotform.getSettings();
 
             return res.status(200).json(
-                    {
-                        success: true,
-                        data: data
-                    }
-                );
+                {
+                    success: true,
+                    data: data
+                }
+            );
 
         } catch (error) {
 
